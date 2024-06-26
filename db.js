@@ -6,7 +6,7 @@ module.exports = () => {
         useUnifiedTopology: true
     }
     try {
-        mongoose.connect("mongodb://localhost:27017/mern", connectionParams);
+        mongoose.connect("mongodb+srv://vercel-admin-user:Abhinav@2021>@cluster0.hcpv2ij.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", connectionParams);
         console.log("Connected to database successfully")
     } catch (err) {
         console.log(err);
