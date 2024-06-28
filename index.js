@@ -38,7 +38,7 @@ const validate = (data) => {
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: "https://social-media-app-front-end-part.vercel.app/login"
+    origin: "https://social-media-app-front-end-part.vercel.app"
 }));
 
 // Endpoint for file upload
@@ -80,7 +80,7 @@ app.get('/', async (req, res) => {
         
         const images = await ImageModel.find().skip(skip).limit(size);
         const formattedImages = images.map(image => ({
-            _id: image._id, // Ensure _id is included
+            _id: image._id,
             name: image.name,
             description: image.description,
             image: `data:${image.image.contentType};base64,${image.image.data.toString('base64')}`
@@ -126,6 +126,6 @@ app.post("/login", async (req, res) => {
 });
 
 const port = process.env.PORT || 3000; 
-app.listen( port,() => {
+app.listen(port, () => {
     console.log(`Listening on port ${port}...`);
 });
