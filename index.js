@@ -37,10 +37,10 @@ const validate = (data) => {
 
 app.use(express.json());
 app.use(cors({
-    credentials: true,
-    origin: "*",
-    optionsSuccessStatus:200,
-}));
+    "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
+    }));
 
 // Endpoint for file upload
 app.post('/upload', upload.single('profilePic'), async (req, res) => {
