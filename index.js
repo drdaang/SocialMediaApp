@@ -36,6 +36,7 @@ const validate = (data) => {
 };
 
 app.use(express.json());
+app.options('*', cors(corsOptions)); // Preflight request handler
 app.use(cors({
     "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "*",
