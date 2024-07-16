@@ -38,7 +38,7 @@ const validate = (data) => {
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: "https://social-media-app-front-end-part.vercel.app"
+    origin: "*"
 }));
 
 // Endpoint for file upload
