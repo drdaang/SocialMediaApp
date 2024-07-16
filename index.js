@@ -122,8 +122,6 @@ app.post("/login", async (req, res) => {
         if (!user) return res.status(401).send({ message: "Invalid Email or Password" });
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) return res.status(401).send({ message: "Invalid Email or Password" });
-        const token = user.generateAuthToken();
-        user.token = token;
         res.status(200).send({ data: token, message: "Logged in Successfully", user: user });
     } catch (err) {
         res.status(500).send({ message: "Internal Server Error" });
