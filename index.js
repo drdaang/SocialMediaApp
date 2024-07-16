@@ -38,7 +38,7 @@ const validate = (data) => {
 app.use(express.json());
 
 const corsOptions = {
-    origin: ['https://social-media-app-front-end-part.vercel.app/signup'], // Allow only your frontend domain
+    origin: "*", 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 };
