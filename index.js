@@ -39,8 +39,7 @@ app.use(express.json());
 
 const corsOptions = {
     origin: "*", 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    optionSuccessStatus:200,
 };
 app.options('*', cors(corsOptions)); // Preflight request handler
 
