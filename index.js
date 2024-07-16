@@ -37,11 +37,14 @@ const validate = (data) => {
 
 app.use(express.json());
 app.options('*', cors(corsOptions)); // Preflight request handler
-app.use(cors({
-    "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",
-    }));
+const corsOptions = {
+    origin: ['https://social-media-app-front-end-part.vercel.app/signup'], // Allow only your frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+
 
 // Endpoint for file upload
 app.post('/upload', upload.single('profilePic'), async (req, res) => {
