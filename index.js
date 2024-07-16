@@ -38,7 +38,8 @@ const validate = (data) => {
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: "*"
+    origin: "*",
+    optionsSuccessStatus:200,
 }));
 
 // Endpoint for file upload
